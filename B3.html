@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تخطي الإعلانات</title>
+
+    <!-- مكتبة Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #121212, #1e1e1e);
+            color: #f1f1f1;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 500px;
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 255, 128, 0.3);
+            text-align: center;
+        }
+
+        .icon-top {
+            font-size: 45px;
+            color: #00ff80;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: #00ff80;
+            font-weight: 700;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .instructions {
+            text-align: right;
+            background: #242424;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #00ff80;
+            margin-bottom: 15px;
+            display: none; /* مخفي افتراضيًا */
+        }
+
+        .instructions h2 {
+            color: #00ff80;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .instructions ol {
+            list-style: none;
+            padding: 0;
+        }
+
+        .instructions li {
+            margin-bottom: 10px;
+            font-size: 16px;
+            position: relative;
+            padding-right: 25px;
+            direction: rtl;
+        }
+
+        .instructions li::before {
+            content: "✔";
+            position: absolute;
+            right: 0;
+            color: #00ff80;
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #00ff80;
+            color: #121212;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s;
+            margin-top: 10px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            background: #00cc66;
+            transform: scale(1.05);
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <i class="fas fa-ad icon-top"></i>
+    <h1>تخطي الإعلانات للحصول على الكود</h1>
+    <p>يرجى اتباع الخطوات التالية لتخطي الإعلانات بنجاح:</p>
+
+    <!-- أزرار التحكم -->
+    <a href="https://x.com" class="btn">بدء التخطي</a>
+    <button class="btn" onclick="toggleInstructions()">كيفية التخطي؟</button>
+
+    <!-- تعليمات تخطي الإعلانات (مخفية افتراضيًا) -->
+    <div class="instructions" id="instructionsBox">
+        <h2>كيفية تخطي الإعلانات:</h2>
+        <ol>
+            <li>انتظر العد التنازلي بجانب كلمة <strong>"seconds remaining"</strong>.</li>
+            <li>عند انتهاء العد، ستتغير الكلمة إلى <strong>"Next"</strong>، اضغط عليها.</li>
+            <li>بعد الضغط، سيتم تمرير الصفحة للأسفل تلقائيًا.</li>
+            <li>اضغط على زر <strong>"Continue"</strong>، وستتم إعادة تحميل الصفحة مع بدء العد مجددًا.</li>
+            <li>كرر الخطوات السابقة <strong>3 مرات</strong> للوصول إلى المرحلة الأخيرة.</li>
+            <li>بعد التكرار، ستظهر صفحة تحتوي على عبارة <strong>"Your link is almost ready"</strong>، انتظر <strong>5 ثوانٍ</strong>.</li>
+            <li>عند ظهور زر <strong>"GET LINK"</strong>، اضغط عليه للحصول على الكود.</li>
+        </ol>
+    </div>
+</div>
+
+<script>
+    function toggleInstructions() {
+        let instructions = document.getElementById("instructionsBox");
+        if (instructions.style.display === "none" || instructions.style.display === "") {
+            instructions.style.display = "block";
+        } else {
+            instructions.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>

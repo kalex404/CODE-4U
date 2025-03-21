@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كود الإنترنت المجاني</title>
+
+    <!-- مكتبة Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #121212, #1e1e1e);
+            color: #f1f1f1;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 400px;
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 255, 128, 0.3);
+            text-align: center;
+        }
+
+        .icon-top {
+            font-size: 45px;
+            color: #00ff80;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: #00ff80;
+            font-weight: 700;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .select-box {
+            background: #242424;
+            border: 2px solid #00ff80;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+        }
+
+        select {
+            width: 100%;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 16px;
+            padding: 8px;
+            outline: none;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .code-box {
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            background: #242424;
+            padding: 12px;
+            border-radius: 8px;
+            border: 2px solid #00ff80;
+            margin-bottom: 15px;
+        }
+
+        .code-box input {
+            flex: 1;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            font-weight: bold;
+            outline: none;
+        }
+
+        .copy-btn {
+            background: none;
+            border: none;
+            color: #00ff80;
+            font-size: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .copy-btn:hover {
+            color: #00cc66;
+        }
+
+        .alert-message {
+            display: none;
+            font-size: 14px;
+            color: #ffcc00;
+            margin-top: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #00ff80;
+            color: #121212;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background: #00cc66;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <i class="fas fa-gift icon-top"></i>
+    <h1> اختر شبكتك للحصول على الكود </h1>
+    <p>حدد شبكة الاتصالات الخاصة بك، ثم قم بنسخ الكود.</p>
+
+    <div class="select-box">
+        <select id="networkSelect" onchange="showCode()">
+            <option value="" disabled selected>اختر شبكتك</option>
+            <option value="vodafone">فودافون</option>
+            <option value="orange">أورانج</option>
+            <option value="etisalat">اتصالات</option>
+            <option value="we">WE</option>
+        </select>
+    </div>
+
+    <div class="code-box" id="codeContainer">
+        <input type="text" id="codeField" readonly>
+        <button class="copy-btn" onclick="copyCode()"><i class="fas fa-copy"></i></button>
+    </div>
+
+    <p class="alert-message" id="alertMessage">قد يكون الكود مستهلكًا، تابع التحديثات للحصول على أكواد جديدة!</p>
+
+   <a href="https://x.com" class="btn">العودة للرئيسية</a>
+</div>
+
+<script>
+    const codes = {
+        vodafone: "VF-2000MB-XYZ",
+        orange: "OR-2000MB-ABC",
+        etisalat: "ET-2000MB-DEF",
+        we: "WE-2000MB-GHI"
+    };
+
+    function showCode() {
+        let network = document.getElementById("networkSelect").value;
+        let codeField = document.getElementById("codeField");
+        let codeContainer = document.getElementById("codeContainer");
+
+        if (network) {
+            codeField.value = codes[network];
+            codeContainer.style.display = "flex";
+        }
+    }
+
+    function copyCode() {
+        let codeField = document.getElementById("codeField");
+        codeField.select();
+        document.execCommand("copy");
+
+        let copyBtn = document.querySelector(".copy-btn i");
+        copyBtn.classList.remove("fa-copy");
+        copyBtn.classList.add("fa-check");
+
+        let alertMessage = document.getElementById("alertMessage");
+        alertMessage.style.display = "block";
+
+        setTimeout(() => {
+            copyBtn.classList.remove("fa-check");
+            copyBtn.classList.add("fa-copy");
+            alertMessage.style.display = "none";
+        }, 4000);
+    }
+</script>
+
+</body>
+</html>

